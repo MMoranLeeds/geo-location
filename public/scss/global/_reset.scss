@@ -1,0 +1,345 @@
+@use "./variables";
+
+*,
+*:before,
+*:after,
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+    -webkit-font-smoothing: antialiased;
+}
+
+*:before,
+*:after {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    text-decoration: inherit;
+}
+
+::selection {
+    background-color: darken(variables.$primary, 3%);
+    text-shadow: none;
+    color: rgb(255, 255, 255);
+}
+
+input::placeholder,
+input::-webkit-input-placeholder,
+input::-moz-placeholder {
+    opacity: 0.85;
+}
+
+a {
+    color: darken(variables.$blue, 20%);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+address {
+    font-style: normal;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+figcaption {
+    display: none;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: variables.$font-family;
+}
+
+button,
+input,
+select,
+textarea {
+    appearance: none;
+}
+
+button,
+input,
+p,
+select,
+textarea {
+    font-size: 1rem;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: none;
+}
+
+body {
+    background-color: #ffffff;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+*:disabled {
+    cursor: not-allowed;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.v-hidden {
+    position: absolute;
+    left: -99999px;
+}
+
+fieldset {
+    min-width: initial;
+    display: block;
+}
+
+form {
+    &:not(.width-auto) {
+        width: 100%;
+    }
+}
+
+h1:not(:last-child),
+h2:not(:last-child),
+h3:not(:last-child),
+h4:not(:last-child),
+h5:not(:last-child),
+h6:not(:last-child),
+p:not(:last-child) {
+    padding-bottom: variables.$rem-size-2;
+}
+
+p:empty {
+    display: none;
+}
+
+html,
+body {
+    min-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+    color: variables.$black;
+}
+
+html {
+    font-size: 1em;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    color: darken(variables.$blue, 10%);
+    font-weight: 700;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+ol,
+ul {
+    &:not(.has-bullet-points) {
+        list-style: none;
+    }
+
+    &.has-bullet-points {
+        padding-left: 20px;
+
+        &.list-style-disc {
+            list-style: disc;
+        }
+    }
+
+    &:not(:last-child) {
+        padding-bottom: variables.$rem-size-2;
+    }
+}
+
+p {
+    word-break: break-word;
+
+    &:empty {
+        padding-bottom: variables.$rem-size-0;
+    }
+}
+
+section {
+    width: 100%;
+    position: relative;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.svg-inline-items {
+    display: none;
+    opacity: 0;
+    visibility: visible;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    caption {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+.text-off-screen {
+    text-indent: -99999px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.error-text {
+    color: variables.$red;
+}
+
+.word-break-initial,
+.word-break-initial * {
+    word-break: initial !important;
+}

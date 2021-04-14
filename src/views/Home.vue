@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <div class="highlight"></div>
+
     <div class="content">
       <h1>{{ welcomeMessage }}</h1>
 
@@ -8,25 +10,25 @@
           {{ item.name }}
         </li>
       </ul>
-    </div>
 
-    <div v-if="errorStr">
-      Sorry, but the following error occurred: {{ errorStr }}
-    </div>
+      <div v-if="errorStr">
+        Sorry, but the following error occurred: {{ errorStr }}
+      </div>
 
-    <div class="search-assets-container">
-      <button type="button" v-on:click="locateUser()">
-        <svg>
-          <use href="#gps" />
-        </svg>
-      </button>
+      <div class="search-assets-container">
+        <button type="button" v-on:click="locateUser()">
+          <svg>
+            <use href="#gps" />
+          </svg>
+        </button>
 
-      <input type="text" v-model="address" placeholder="Enter a location" />
+        <input type="text" v-model="address" placeholder="Enter a location" />
+      </div>
     </div>
 
     <section class="search-button">
-      <button v-on:click="searchProperties('Search logic here')" type="button">
-        Search properties
+      <button v-on:click="searchProperties()" type="button">
+        Search assets
       </button>
     </section>
   </div>
@@ -67,8 +69,8 @@ export default class Home extends Vue {
     this.displayContent.play();
   }
 
-  searchProperties(message: string) {
-    alert(message);
+  searchProperties() {
+    alert("Search logic for address " + this.address + " goes here");
   }
 
   async getLocation() {
@@ -118,11 +120,15 @@ export default class Home extends Vue {
         opacity: 0,
         y: 25,
       })
+      .from(".home .highlight", {
+        duration: 0.35,
+        opacity: 0,
+      })
       .from(".content", {
         duration: 0.35,
         opacity: 0,
-        y: -25,
-      })
+        y: -10,
+      }, "-=0.35")
       .from("ul li", {
         duration: 0.5,
         opacity: 0,

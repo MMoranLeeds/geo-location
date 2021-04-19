@@ -64,6 +64,7 @@ export default class Home extends Vue {
   location: any = null;
   errorStr: any = null;
   address = "";
+  test = "";
 
   animate() {
     this.displayContent.play();
@@ -109,7 +110,7 @@ export default class Home extends Vue {
           "&lat=" +
           this.location.coords.latitude
       )
-      .then((response) => (this.address = response.data.result[0].postcode));
+      .then((response) => (this.address = response.data.result[0].admin_ward + ' ' + response.data.result[0].postcode, this. test = response.data));
   }
 
   mounted() {
